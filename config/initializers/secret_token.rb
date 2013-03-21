@@ -11,7 +11,7 @@ if ENV["SECRET_TOKEN"].blank?
     raise "You must set SECRET_TOKEN in config.yml" if config[Rails.env]['SECRET_TOKEN'].blank?
     ENV=["SECRET_TOKEN"] = config[Rails.env]['SECRET_TOKEN']
     # raise "You must set ENV[\"SECRET_TOKEN\"] in your app's config vars"
-  elsif Rails.elsifnv.test?
+  elsif Rails.env.test?
     # Generate the key and test away
     ENV["SECRET_TOKEN"] = RstatUs::Application.config.secret_token = SecureRandom.hex(30)
   else
