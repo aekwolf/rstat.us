@@ -1,1 +1,1 @@
-server 'mkadlec.railsmachine.railsmachina.com/', :app, :web, :db, :primary => true
+server 'mkadlec.railsmachine.railsmachina.com', :app, :web, :db, :primary => true
