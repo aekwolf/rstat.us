@@ -7,6 +7,9 @@
 
 
 if ENV["SECRET_TOKEN"].blank?
+  config_file = File.expand_path(File.join(Rails.root, '/config/config.yml'))
+  config = YAML.load_file(config_file)
+  
   if Rails.env.production?
     raise "You must set SECRET_TOKEN in config.yml" if config[Rails.env]['SECRET_TOKEN'].blank?
     ENV["SECRET_TOKEN"] = config[Rails.env]['SECRET_TOKEN']
@@ -15,8 +18,6 @@ if ENV["SECRET_TOKEN"].blank?
     # Generate the key and test away
     ENV["SECRET_TOKEN"] = RstatUs::Application.config.secret_token = SecureRandom.hex(30)
   else
-    config_file = File.expand_path(File.join(Rails.root, '/config/config.yml'))
-    config = YAML.load_file(config_file)
     # Generate the key, set it for the current environment, update the yaml file and move on
     ENV["SECRET_TOKEN"] = config[Rails.env]['SECRET_TOKEN'] = SecureRandom.hex(30)
     File.open(config_file, 'w') { |file| file.write(config.to_yaml) }
