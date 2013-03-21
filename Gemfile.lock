@@ -1,13 +1,4 @@
 GIT
-  remote: git://github.com/collectiveidea/delayed_job.git
-  revision: 8dc3930f20eb7363ef0d451ac05a3851eb0caaf6
-  tag: v2.1.4
-  specs:
-    delayed_job (2.1.4)
-      activesupport (~> 3.0)
-      daemons
-
-GIT
   remote: git://github.com/earbits/delayed_job_mongo_mapper.git
   revision: 321b3c553b664350d92327708e97dc06ab2957da
   specs:
@@ -100,6 +91,9 @@ GEM
     crack (0.3.2)
     daemons (1.1.9)
     database_cleaner (0.6.7)
+    delayed_job (2.1.4)
+      activesupport (~> 3.0)
+      daemons
     draper (0.11.1)
       activesupport (>= 2.3.10)
     erubis (2.7.0)
@@ -290,7 +284,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.2)
   compass-rails (~> 1.0.3)
   database_cleaner (~> 0.6.7)
-  delayed_job!
+  delayed_job
   delayed_job_mongo_mapper!
   draper (~> 0.11.1)
   exceptional (~> 2.0.32)
